@@ -1,15 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Just a Square</title>
-    <script src="square.js" defer></script>
-    <script src="consolemessage.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <h1>Its a Just a Normal Square!<h1>
-    <h1><h1>
-    <h1>Press A,D or Left Arrow, Right Arrow to move<h1>
-    <h1><h1>
-    <h1>This is a HTA Edition</h1>
+    <hta:application id="objHTA" applicationname="MoveBox" border="thick" caption="yes" navigable="yes" windowstate="normal">
+    <script type="text/javascript">
+        window.onload = function() {
+            var square = document.createElement('div');
+            square.style.width = '500px';
+            square.style.height = '500px';
+            square.style.backgroundColor = 'grey';
+            square.style.position = 'absolute';
+            square.style.left = '0px';
+            square.style.top = '0px';
+            document.body.appendChild(square);
+            var positionX = 0;
+            var speed = 10;
+            document.onkeydown = function() {
+                var event = window.event; // IE event model support
+                var key = String.fromCharCode(event.keyCode);
+                if (key === 'A' || event.keyCode === 37) { // 'A' or ArrowLeft (37)
+                    positionX -= speed;
+                } else if (key === 'D' || event.keyCode === 39) { // 'D' or ArrowRight (39)
+                    positionX += speed;
+                }
+                square.style.left = positionX + 'px';
+            };
+        };
+    </script>
+</head>
+<body>
 </body>
 </html>
+
