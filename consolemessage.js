@@ -1,0 +1,6 @@
+console.log("Welcome to Green Square!")
+console.log("made 25 lines of javascript!")
+console.log("made 12 lines of html")
+console.log("You Can Code the Square But (Javascript Coding Required)")
+console.log("Enjoy the Square!")
+console.log(":)")
